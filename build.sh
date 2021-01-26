@@ -17,8 +17,8 @@ check_version(){
 
 check_makeself(){
     if ! command -v makeself.sh >/dev/null 2>&1; then
-        wget -q https://github.com/megastep/makeself/releases/download/release-2.4.3/makeself-2.4.3.run
-        bash makeself-2.4.3.run --target ${MAKESELF_INSTALL_DIR}
+        wget -q https://github.com/megastep/makeself/releases/download/release-${MAKESELF_VERSION}/makeself-${MAKESELF_VERSION}.run
+        bash makeself-${MAKESELF_VERSION}.run --target ${MAKESELF_INSTALL_DIR}
         export PATH=${MAKESELF_INSTALL_DIR}:${PATH}
     fi
 }
@@ -51,7 +51,7 @@ EOF
 
 clean(){
     info "clean files."
-    rm -rf pack/bin/* makeself-2.4.3* ${MAKESELF_INSTALL_DIR} LSM
+    rm -rf pack/bin/* makeself* ${MAKESELF_INSTALL_DIR} LSM
 }
 
 function info(){
