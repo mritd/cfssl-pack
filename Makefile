@@ -3,7 +3,7 @@ BUILD_VERSION   := $(shell cat version)
 all: clean build
 
 build:
-	bash build.sh
+	bash build.sh ${BUILD_VERSION}
 
 release: all
 	ghr -u mritd -t ${GITHUB_TOKEN} -replace -recreate --debug v${BUILD_VERSION} *.run 
