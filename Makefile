@@ -6,10 +6,10 @@ build:
 	bash build.sh ${BUILD_VERSION}
 
 release: all
-	ghr -u mritd -t ${GITHUB_TOKEN} -replace -recreate --debug v${BUILD_VERSION} *.run 
+	ghr -u mritd -t ${GITHUB_TOKEN} -replace -recreate -name "Bump v${BUILD_VERSION}" --debug v${BUILD_VERSION} *.run 
 
 pre-release: all
-	ghr -u mritd -t ${GITHUB_TOKEN} -replace -recreate -prerelease --debug v${BUILD_VERSION} *.run
+	ghr -u mritd -t ${GITHUB_TOKEN} -replace -recreate -prerelease -name "Bump v${BUILD_VERSION}" --debug v${BUILD_VERSION} *.run
 
 clean:
 	rm -rf *.run
