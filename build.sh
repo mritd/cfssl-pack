@@ -3,6 +3,7 @@
 set -e
 
 VERSION=${1}
+DEFAULT_VERTION="1.6.0"
 MAKESELF_VERSION=${MAKESELF_VERSION:-"2.4.3"}
 MAKESELF_INSTALL_DIR=$(mktemp -d makeself.XXXXXX)
 DOWNLOAD_TPL="https://github.com/cloudflare/cfssl/releases/download/v%s/%s_%s_linux_amd64"
@@ -10,8 +11,8 @@ CFSSL_FILES=(cfssl cfssl-bundle cfssl-certinfo cfssl-newkey cfssl-scan cfssljson
 
 check_version(){
     if [ -z "${VERSION}" ]; then
-        warn "cfssl version not specified, use default version 1.5.0."
-        VERSION="1.5.0"
+        warn "cfssl version not specified, use default version ${DEFAULT_VERTION}."
+        VERSION=${DEFAULT_VERTION}
     fi
 }
 
